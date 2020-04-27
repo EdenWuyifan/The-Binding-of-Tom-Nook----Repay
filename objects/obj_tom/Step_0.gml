@@ -8,12 +8,24 @@ up = keyboard_check(ord("W"));
 down = keyboard_check(ord("S"));
 left = keyboard_check(ord("A"));
 right = keyboard_check(ord("D"));
-space = keyboard_check(vk_space);
+
 
 move_x = (right - left) * spd;
 move_y = (down - up) * spd;
 
-//collide with wall
+//collision
+if(place_meeting(x + move_x,y,obj_wall)){
+	while(!place_meeting(x + sign(move_x),y,obj_wall)){
+		x += sign(move_x);
+	}
+}else{
+	x += move_x;
+}
 
-x+=move_x;
-y+=move_y;
+if(place_meeting(x,y+move_y,obj_wall)){
+	while(!place_meeting(x,y + sign(move_y),obj_wall)){
+		y += sign(move_y);
+	}
+}else{
+	y += move_y;
+}
