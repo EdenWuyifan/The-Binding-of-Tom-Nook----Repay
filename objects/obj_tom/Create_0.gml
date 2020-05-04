@@ -7,3 +7,6 @@ move_y = 0;
 
 //depth
 depth = -y;
+
+//power
+power_timer = 0;

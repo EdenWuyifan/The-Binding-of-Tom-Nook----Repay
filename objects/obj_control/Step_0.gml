@@ -3,7 +3,6 @@
 
 wait_timer++;
 shoot_timer++;
-show_debug_message(shoot_timer);
 
 //shooting dir
 up = keyboard_check(vk_up);
@@ -21,7 +20,7 @@ if(up or down or left or right){
 //bullets control
 num_of_bullet = instance_number(obj_bullet);
 if(num_of_bullet < global.max_bullets){
-	if(global.is_shooting and shoot_timer >= 50){
+	if(global.is_shooting and shoot_timer >= global.shooting_spd){
 		shoot_timer = 0;
 		curr_bullet = instance_create_layer(obj_tom.x,obj_tom.y,"Instances",obj_bullet);
 		if(up){

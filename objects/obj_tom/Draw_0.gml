@@ -14,5 +14,9 @@ if(move_x>0){
 }
 
 
-draw_self();
+if(global.is_hitted and power_timer % 3 != 0){
+	draw_self();
+}else if(!global.is_hitted){
+	draw_self();
+}
 
