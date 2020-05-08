@@ -20,9 +20,9 @@ if(up or down or left or right){
 //bullets control
 num_of_bullet = instance_number(obj_bullet);
 if(num_of_bullet < global.max_bullets){
-	if(global.is_shooting and shoot_timer >= global.shooting_spd){
+	if(global.bells > 0 and global.is_shooting and shoot_timer >= global.shooting_spd){
 		shoot_timer = 0;
-		curr_bullet = instance_create_layer(obj_tom.x,obj_tom.y,"Instances",obj_bullet);
+		var curr_bullet = instance_create_layer(obj_tom.x,obj_tom.y,"Instances",obj_bullet);
 		if(up){
 			curr_bullet.direction = 90;
 		}else if(down){
@@ -33,6 +33,34 @@ if(num_of_bullet < global.max_bullets){
 		}else if(right){
 			curr_bullet.direction = 0;
 		}
+		global.bells --;
 	}
 	
+}
+
+//bomb
+if(global.bells >= 8 and !global.is_bombing and space){
+	var bomb = instance_create_layer(obj_tom.x,obj_tom.y,"Instances",obj_bomb);
+	if(obj_tom.move_x == 0 and obj_tom.move_y == 0){
+		bomb.direction = 90;
+		bomb.speed = 0;
+	}else if(obj_tom.move_x > 0 and obj_tom.move_y < 0){
+		bomb.direction = 45;
+	}else if(obj_tom.move_x > 0 and obj_tom.move_y > 0){
+		bomb.direction = 315;
+	}else if(obj_tom.move_x < 0 and obj_tom.move_y < 0){
+		bomb.direction = 135;
+	}else if(obj_tom.move_x < 0 and obj_tom.move_y > 0){
+		bomb.direction = 225;
+	}else if(obj_tom.move_x > 0 and obj_tom.move_y = 0){
+		bomb.direction = 0;
+	}else if(obj_tom.move_x = 0 and obj_tom.move_y < 0){
+		bomb.direction = 90;
+	}else if(obj_tom.move_x < 0 and obj_tom.move_y = 0){
+		bomb.direction = 180;
+	}else if(obj_tom.move_x = 0 and obj_tom.move_y > 0){
+		bomb.direction = 270;
+	}
+	global.is_bombing = true;
+	global.bells -= 8;
 }

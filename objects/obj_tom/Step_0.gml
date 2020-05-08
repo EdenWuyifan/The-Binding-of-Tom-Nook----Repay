@@ -22,10 +22,6 @@ if(place_meeting(x + move_x,y,obj_wall)){
 	while(!place_meeting(x + sign(move_x),y,obj_box)){
 		x += sign(move_x);
 	}
-}else if(place_meeting(x + move_x,y,obj_enemy_female)){
-	while(!place_meeting(x + sign(move_x),y,obj_enemy_female)){
-		x += sign(move_x);
-	}
 }else{
 	x += move_x;
 }
@@ -38,17 +34,12 @@ if(place_meeting(x,y+move_y,obj_wall)){
 	while(!place_meeting(x,y + sign(move_y),obj_box)){
 		y += sign(move_y);
 	}
-}else if(place_meeting(x,y+move_y,obj_enemy_female)){
-	while(!place_meeting(x,y + sign(move_y),obj_enemy_female)){
-		y += sign(move_y);
-	}
 }else{
 	y += move_y;
 }
 
 
 //power time
-show_debug_message(power_timer);
 if(power_timer != 0){
 	power_timer --;
 }else{
