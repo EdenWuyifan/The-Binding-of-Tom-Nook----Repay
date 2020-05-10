@@ -12,3 +12,8 @@ if(place_meeting(x,y,obj_wall) or place_meeting(x,y,obj_box)){
 		direction *= -1;
 	}
 }
+
+
+if(sprite_index == spr_explosion and image_index == image_number-1){
+	instance_destroy();
+}

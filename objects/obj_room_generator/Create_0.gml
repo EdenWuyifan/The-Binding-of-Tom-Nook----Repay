@@ -19,8 +19,8 @@ ds_grid_set(rm1,0,0,2);
 ds_grid_set(rm1,6,0,2);
 ds_grid_set(rm1,0,4,2);
 ds_grid_set(rm1,6,4,2);
-ds_grid_set(rm1,1,0,3);
-ds_grid_set(rm1,5,0,3);
+//ds_grid_set(rm1,1,0,3);
+//ds_grid_set(rm1,5,0,3);
 ds_list_add(global.rooms,rm1);
 
 //room 2
@@ -60,13 +60,22 @@ ds_grid_set(rm4,6,2,1);
 
 ds_list_add(global.rooms,rm4);
 
+//boss room
+var rm5 = ds_grid_create(7,5);
+
+ds_list_add(global.rooms,rm5);
+
+
+
 
 //show_debug_message(global.rooms);
 
 //room layout overall
+global.minimap_status = ds_grid_create(3,3);
+
 global.minimap = ds_grid_create(3,3);
 ds_grid_set(global.minimap,1,1,1);
-ds_grid_set(global.minimap,0,0,irandom_range(2,4));
+ds_grid_set(global.minimap,0,0,5);
 ds_grid_set(global.minimap,0,1,irandom_range(2,4));
 ds_grid_set(global.minimap,0,2,irandom_range(2,4));
 ds_grid_set(global.minimap,1,0,irandom_range(2,4));
@@ -74,6 +83,8 @@ ds_grid_set(global.minimap,2,0,irandom_range(2,4));
 ds_grid_set(global.minimap,1,2,irandom_range(2,4));
 ds_grid_set(global.minimap,2,1,irandom_range(2,4));
 ds_grid_set(global.minimap,2,2,irandom_range(2,4));
+
+
 
 
 //show_debug_message(ds_grid_get(global.minimap,0,0));
@@ -86,4 +97,5 @@ for(var i = 0; i < 9; i++){
 	room_set_width(new_room, 576);
 	room_set_height(new_room, 448);
 	ds_list_add(global.minimap_rooms,new_room);
+	ds_grid_set(global.minimap_status,i mod 3,i div 3, false);
 }

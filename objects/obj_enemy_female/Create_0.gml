@@ -6,3 +6,8 @@ hp = 6;
 
 //timer
 shooting_timer = 0;
+
+blink = false;
+blink_times = 3;
+blink_counter = 0;
+blink_duration = 3;
