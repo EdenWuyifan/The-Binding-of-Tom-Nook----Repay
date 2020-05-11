@@ -1,7 +1,5 @@
 /// @description Insert description here
 // You can write your code in this editor
-
-wait_timer++;
 shoot_timer++;
 
 //shooting dir
@@ -11,6 +9,17 @@ left = keyboard_check(vk_left);
 right = keyboard_check(vk_right);
 space = keyboard_check(vk_space);
 
+
+
+//player dead
+if(global.player_hp <= 0){
+	instance_deactivate_all(false);
+	room_goto(room_dead);
+	//sound
+	audio_stop_sound(snd_bgm);
+	audio_play_sound(snd_lose,0,0);
+}
+
 //shooting
 global.is_shooting = false;
 if(up or down or left or right){
@@ -19,8 +28,12 @@ if(up or down or left or right){
 
 //bullets control
 num_of_bullet = instance_number(obj_bullet);
-if(num_of_bullet < global.max_bullets){
+if(instance_exists(obj_tom) and num_of_bullet < global.max_bullets){
 	if(global.bells > 0 and global.is_shooting and shoot_timer >= global.shooting_spd){
+		
+		//sound
+		audio_play_sound(snd_player_shoot,0,0);
+		
 		shoot_timer = 0;
 		var curr_bullet = instance_create_layer(obj_tom.x,obj_tom.y,"Instances",obj_bullet);
 		if(up){
@@ -64,3 +77,5 @@ if(global.bells >= 8 and !global.is_bombing and space){
 	global.is_bombing = true;
 	global.bells -= 8;
 }
+
+

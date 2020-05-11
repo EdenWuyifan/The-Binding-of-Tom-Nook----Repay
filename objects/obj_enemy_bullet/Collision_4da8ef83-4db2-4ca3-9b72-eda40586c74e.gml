@@ -5,5 +5,7 @@ if(!global.is_hitted){
 	global.is_hitted = true;
 	global.player_hp --;
 	obj_tom.power_timer = global.power_time;
+	//sound
+	audio_play_sound(snd_hurt,0,0);
 }
 instance_destroy();

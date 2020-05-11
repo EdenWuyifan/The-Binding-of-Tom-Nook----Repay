@@ -45,3 +45,22 @@ if(power_timer != 0){
 }else{
 	global.is_hitted = false;
 }
+
+
+//boss fight
+if(room == room_before_boss_fight){
+	wait_timer ++;
+}
+if(wait_timer == 120){
+	wait_timer = 0;
+	room_goto(ds_list_find_value(global.minimap_rooms,global.cur_room));
+	global.makeNewRoom = true;
+	boss_wait = false;
+}
+
+
+//bgm
+
+if(audio_is_playing(snd_bossfight)){
+	audio_stop_sound(snd_bgm);
+}

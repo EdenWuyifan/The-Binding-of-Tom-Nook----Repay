@@ -19,8 +19,8 @@ ds_grid_set(rm1,0,0,2);
 ds_grid_set(rm1,6,0,2);
 ds_grid_set(rm1,0,4,2);
 ds_grid_set(rm1,6,4,2);
-//ds_grid_set(rm1,1,0,3);
-//ds_grid_set(rm1,5,0,3);
+ds_grid_set(rm1,1,0,3);
+ds_grid_set(rm1,5,0,3);
 ds_list_add(global.rooms,rm1);
 
 //room 2
@@ -38,6 +38,8 @@ ds_grid_set(rm2,4,1,2);
 ds_grid_set(rm2,2,3,2);
 ds_grid_set(rm2,4,3,2);
 ds_grid_set(rm2,4,2,2);
+ds_grid_set(rm2,1,0,3);
+ds_grid_set(rm2,5,4,3);
 ds_list_add(global.rooms,rm2);
 
 //room 3
@@ -47,7 +49,11 @@ ds_grid_set(rm3,3,0,1);
 ds_grid_set(rm3,3,4,1);
 ds_grid_set(rm3,0,2,1);
 ds_grid_set(rm3,6,2,1);
-
+ds_grid_set(rm3,0,0,2);
+ds_grid_set(rm3,6,4,2);
+ds_grid_set(rm3,1,0,3);
+ds_grid_set(rm3,5,0,3);
+ds_grid_set(rm3,3,1,3);
 ds_list_add(global.rooms,rm3);
 
 //room 4
@@ -57,6 +63,14 @@ ds_grid_set(rm4,3,0,1);
 ds_grid_set(rm4,3,4,1);
 ds_grid_set(rm4,0,2,1);
 ds_grid_set(rm4,6,2,1);
+ds_grid_set(rm4,0,0,2);
+ds_grid_set(rm4,6,0,2);
+ds_grid_set(rm4,0,4,2);
+ds_grid_set(rm4,6,4,2);
+ds_grid_set(rm4,1,2,2);
+ds_grid_set(rm4,5,3,2);
+ds_grid_set(rm4,3,2,2);
+ds_grid_set(rm4,5,0,3);
 
 ds_list_add(global.rooms,rm4);
 

@@ -13,3 +13,12 @@ depth = -y;
 
 //power
 power_timer = 0;
+
+//boss wait
+wait_timer = 0;
+boss_wait = true;
+
+//sound
+if(!audio_is_playing(snd_bgm)){
+	audio_play_sound(snd_bgm,0,1);
+}

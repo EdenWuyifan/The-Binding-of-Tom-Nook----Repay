@@ -15,8 +15,9 @@ global.player_hp = 6;
 global.player_facing = 0;
 global.power_time = 50;
 global.is_hitted = false;
+global.player_power = 2;
 
-global.bells = 10000;
+global.bells = 100;
 global.is_bombing = false;
 
 global.is_shooting = false;

@@ -22,3 +22,12 @@ for(var i = 0; i < (global.player_max_hp - global.player_hp) div 2; i ++){
 draw_set_halign(fa_right);
 draw_text_color(room_width-50,25,global.bells,c_orange,c_orange,c_yellow,c_yellow,1);
 draw_sprite_ext(spr_bullet,0,room_width-30,40,0.8,0.8,0,c_white,1);
+
+
+//boss fight
+if(instance_exists(obj_boss)){
+	var hp = obj_boss.hp;
+	draw_sprite_ext(spr_hpbar_background,0,90,room_height-50,203,0.5,0,c_white,1);
+	draw_sprite_ext(spr_hpbar,0,92,room_height-50,hp,0.5,0,c_white,1);
+	
+}

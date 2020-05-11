@@ -8,7 +8,7 @@ if(global.makeNewRoom){
 	var type = ds_grid_get(global.minimap,col,row);
 	x = new_pos_x;
 	y = new_pos_y;
-	if(type == 5){
+	if(type == 5 and boss_wait == true){
 		room_goto(room_before_boss_fight);
 		global.makeNewRoom = false;
 	}

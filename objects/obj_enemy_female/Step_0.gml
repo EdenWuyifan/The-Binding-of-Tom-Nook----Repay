@@ -14,6 +14,11 @@ mp_potential_step_object(obj_tom.x,obj_tom.y,spd,obj_box);
 //shoot
 shooting_timer ++;
 if(shooting_timer == 60){
+	
+	
+	//sound
+	audio_play_sound(snd_enemy_shoot,0,0);
+	
 	instance_create_layer(x,y,"Instances",obj_enemy_bullet);
 	shooting_timer = 0;
 }

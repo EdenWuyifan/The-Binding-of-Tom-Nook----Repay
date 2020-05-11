@@ -10,4 +10,4 @@ if(num == 0){
 }
 
 total_enemy_num --;
-alarm[0] = room_speed * 3;
+alarm[0] = room_speed * (global.shooting_spd/10);

@@ -3,6 +3,12 @@ minimap_row = argument1;
 minimap_col = argument2;
 
 
+view_enabled = true;
+view_visible[0] = true;
+view_wport[0] = 576;
+view_hport[0] = 448;
+view_camera[0] = camera_create_view(0, 0, room_width, room_height);
+
 
 //room status
 status = ds_grid_get(global.minimap_status,minimap_col,minimap_row);
@@ -19,7 +25,9 @@ show_debug_message(minimap_row);
 show_debug_message(minimap_col);
 
 //get the arranged grid
-var room_grid = ds_list_find_value(global.rooms,room_type-1);
+var room_grid_ori = ds_list_find_value(global.rooms,room_type-1);
+var room_grid = ds_grid_create(3,3);
+ds_grid_copy(room_grid,room_grid_ori);
 
 
 //background
@@ -36,11 +44,12 @@ layer_create(-200,"Instances");
 
 
 //room before boss
+
 if(minimap_row == 0 and minimap_col == 1){
 	ds_grid_set(room_grid,0,1,2);
 	ds_grid_set(room_grid,0,3,2);
 	ds_grid_set(room_grid,1,1,2);
-	ds_grid_set(room_grid,1,2,2);
+	ds_grid_set(room_grid,1,2,5);
 	ds_grid_set(room_grid,1,3,2);
 	
 }
@@ -48,7 +57,7 @@ if(minimap_row == 1 and minimap_col == 0){
 	ds_grid_set(room_grid,2,0,2);
 	ds_grid_set(room_grid,4,0,2);
 	ds_grid_set(room_grid,2,1,2);
-	ds_grid_set(room_grid,3,1,2);
+	ds_grid_set(room_grid,3,1,5);
 	ds_grid_set(room_grid,4,1,2);
 }
 
@@ -100,6 +109,11 @@ for(var col = 0; col < 7; col++){
 				if(status){
 					box.available = false;
 				}
+			}else if(ds_grid_get(room_grid,col,row) == 5){
+				var box = instance_create_layer(64+col*64, 64+row*64,"Instances",obj_box);
+				box.depth = 50;
+				//box.available = false;
+				box.sprite_index = spr_sign;
 			}
 			//portal
 			else if(ds_grid_get(room_grid,col,row) == 3){
